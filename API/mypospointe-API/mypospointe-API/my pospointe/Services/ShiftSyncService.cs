@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using my_pospointe.Models;
+using my_pospointe_api.Models;
 using Task = System.Threading.Tasks.Task;
 
 namespace my_pospointe_api.Services

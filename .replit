@@ -33,6 +33,10 @@ outputType = "webview"
 localPort = 5000
 externalPort = 80
 
+[[ports]]
+localPort = 36617
+externalPort = 3000
+
 [deployment]
 deploymentTarget = "autoscale"
 run = ["dotnet", "run", "--project", "API/mypospointe-API/mypospointe-API/my pospointe/my pospointe API.csproj", "--no-build"]
