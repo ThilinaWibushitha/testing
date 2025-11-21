@@ -30,12 +30,14 @@ namespace my_pospointe.Controllers
         private readonly IConfiguration _configuration;
         private readonly ShiftCloseNotification _shiftCloseNotification;
         private readonly SharedStateService _sharedStateService;
+        private readonly IShiftSyncService _shiftSyncService;
 
-        public ShiftController(IConfiguration configuration, ShiftCloseNotification shiftCloseNotification, SharedStateService sharedStateService)
+        public ShiftController(IConfiguration configuration, ShiftCloseNotification shiftCloseNotification, SharedStateService sharedStateService, IShiftSyncService shiftSyncService)
         {
             _configuration = configuration;
             _shiftCloseNotification = shiftCloseNotification;
             _sharedStateService = sharedStateService;
+            _shiftSyncService = shiftSyncService;
         }
         // GET: api/<ShiftController>
         [HttpGet]
@@ -402,6 +404,16 @@ namespace my_pospointe.Controllers
                 };
                 context.TblDayOpenCashCollections.Add(cashCollection);
                 context.SaveChanges();
+                
+                try
+                {
+                    await _shiftSyncService.OnShiftOpenedAsync(op.DayOpenId);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error in shift sync service on shift open: {ex.Message}");
+                }
+                
                 return Ok(op);
             }
 
@@ -448,6 +460,15 @@ namespace my_pospointe.Controllers
                     item.Status = "Closed";
 
                     context.SaveChanges();
+
+                    try
+                    {
+                        await _shiftSyncService.OnShiftClosingAsync(id);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error in shift sync service on shift close: {ex.Message}");
+                    }
 
                     _sharedStateService.SetPrioritySync(id);
 
