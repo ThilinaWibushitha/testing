@@ -11,11 +11,48 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 // Add DbContexts
-builder.Services.AddDbContext<PosavanceInventoryContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+var defaultConnectionFromEnv = Environment.GetEnvironmentVariable("DefaultConnection");
+var defaultConnectionFromConfig = builder.Configuration.GetConnectionString("DefaultConnection");
+var defaultConnection = (!string.IsNullOrWhiteSpace(defaultConnectionFromEnv)) ? defaultConnectionFromEnv
+    : (!string.IsNullOrWhiteSpace(defaultConnectionFromConfig)) ? defaultConnectionFromConfig
+    : null;
 
-builder.Services.AddDbContext<FranchiseManagementContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("FranchiseConnection")));
+var franchiseConnectionFromEnv = Environment.GetEnvironmentVariable("FranchiseConnection");
+var franchiseConnectionFromConfig = builder.Configuration.GetConnectionString("FranchiseConnection");
+var franchiseConnection = (!string.IsNullOrWhiteSpace(franchiseConnectionFromEnv)) ? franchiseConnectionFromEnv
+    : (!string.IsNullOrWhiteSpace(franchiseConnectionFromConfig)) ? franchiseConnectionFromConfig
+    : null;
+
+var hasValidDefaultConnection = !string.IsNullOrWhiteSpace(defaultConnection);
+var hasValidFranchiseConnection = !string.IsNullOrWhiteSpace(franchiseConnection);
+
+if (hasValidDefaultConnection)
+{
+    builder.Services.AddDbContext<PosavanceInventoryContext>(options =>
+        options.UseSqlServer(defaultConnection!));
+}
+else
+{
+    builder.Services.AddDbContext<PosavanceInventoryContext>(options =>
+        options.UseInMemoryDatabase("POSAvanceInventory"));
+}
+
+if (hasValidFranchiseConnection)
+{
+    builder.Services.AddDbContext<FranchiseManagementContext>(options =>
+        options.UseSqlServer(franchiseConnection!));
+}
+else
+{
+    builder.Services.AddDbContext<FranchiseManagementContext>(options =>
+        options.UseInMemoryDatabase("FranchiseManagement"));
+}
+
+if (!hasValidDefaultConnection || !hasValidFranchiseConnection)
+{
+    Console.WriteLine("WARNING: Database connection strings not configured. Using in-memory database.");
+    Console.WriteLine("Set DefaultConnection and FranchiseConnection environment variables to use SQL Server.");
+}
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -40,10 +77,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+app.Run("http://0.0.0.0:5000");
