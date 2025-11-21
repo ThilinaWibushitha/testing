@@ -1,0 +1,312 @@
+<UserControl x:Class="Pospointe.LoginWindow.FrmKitchenPrinter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pospointe.LoginWindow"
+             mc:Ignorable="d" 
+             Loaded="UserControl_Loaded"
+            >
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.ColumnSpan="2" Grid.Column="0" Text="Kitchen Devices" Style="{StaticResource Header2}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Button Background="#990100" x:Name="BtnUpdate" Height="30" Width="100" FontSize="10" Style="{StaticResource PinpadButton}" Grid.Column="1" Content="Update" Click="BtnUpdate_Click"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+
+
+
+
+            <Border Grid.Row="0">
+                <TextBlock Text="Set up your kitchen and hold printers.&#x0a;Quick Tip: Select your kitchen printers and click 'Update' to save settings"
+                    TextWrapping="Wrap"
+                    FontSize="14"
+                    Foreground="Gray"
+                    Margin="10"
+                    HorizontalAlignment="Center"
+                    TextAlignment="Center"
+                    Width="500"/>
+            </Border>
+
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Border Grid.Column="1" Grid.ColumnSpan="2" Background="{StaticResource BorderFillBrush}" CornerRadius="10" >
+                    <ContentControl x:Name="CCUpdater" Grid.Column="1" Grid.ColumnSpan="2"  />
+                </Border>
+
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="Kitchen Printer" Style="{StaticResource Header3}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Kitchen Printer 1" Style="{StaticResource Body1}" VerticalAlignment="Center" Margin="40 0 0 0"/>
+                    <ComboBox  Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}" Margin="10" Grid.Column="1" Grid.Row="1" x:Name="CmbKitchenPrinter" />
+                    
+                    <TextBlock Grid.Column="0" Grid.Row="2" Text="Kitchen Printer 2" Style="{StaticResource Body1}" VerticalAlignment="Center" Margin="40 0 0 0"/>
+                    <ComboBox Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}" Margin="10" Grid.Column="1" Grid.Row="2" x:Name="CmbKitchenPrinter1" />
+
+                    <ComboBox Margin="10" x:Name="CmbSelectReceiptPrinter"  Grid.Column="1" Grid.Row="2" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="3" Text="Keep KOT" Style="{StaticResource Body1}" VerticalAlignment="Center" Margin="40 0 0 0"/>
+                    <ToggleButton Grid.Row="3" Grid.Column="1" Style="{StaticResource ToggleSwitchStyle}" x:Name="KeepKOT" Content="Turn On Customer Display" Margin="10" HorizontalAlignment="Left" Checked="KeepKOTToggle_Checked" Unchecked="KeepKOTToggle_Unchecked"/>
+
+
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+
+
+                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="Hold Printer" Style="{StaticResource Header3}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                    <TextBlock  Grid.Row="1"  Style="{StaticResource Body1}" Text="Printer" VerticalAlignment="Center" Margin="40 0 0 0"/>
+                    <ComboBox x:Name="CmbHoldPrinter"  Margin="10" Grid.Column="1" Grid.Row="1" />
+
+                    <TextBlock  Grid.Row="2" Grid.Column="0"  Style="{StaticResource Body1}" Text="Turn on Hold" VerticalAlignment="Center" Margin="40 0 0 0"/>
+                    <ToggleButton Grid.Row="2" Grid.Column="1" Style="{StaticResource ToggleSwitchStyle}" x:Name="ChkturnHold"  Margin="10" HorizontalAlignment="Left"/>
+
+                    <TextBlock  Grid.Row="3" Grid.Column="0"  Style="{StaticResource Body1}" Text="Print Price" VerticalAlignment="Center" Margin="40 0 0 0"/>
+                    <ToggleButton Grid.Row="3" Grid.Column="1" Style="{StaticResource ToggleSwitchStyle}" x:Name="ChkHoldprice"  Margin="10" HorizontalAlignment="Left"/>
+
+
+
+
+                </Grid>
+
+
+
+
+            </Grid>
+
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+        </Grid>
+
+
+        <!--<Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+            
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource UiLabelHeadingStyle}"  VerticalAlignment="Center" HorizontalAlignment="Center" Content="Receipt Printer Settings" />
+            <TextBlock Style="{StaticResource UiTextBlockStyle}" Margin="40 0 0 0" Text="Select Method" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="LblSelctReciptmethod" Grid.Row="1" TextWrapping="Wrap"  />
+            <TextBlock Grid.Row="2" Style="{StaticResource UiTextBlockStyle}" Margin="40 0 0 0" Text="Select Printer" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="LblSelctReciptprinter" TextWrapping="Wrap"  />
+
+            <ComboBox Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}"  x:Name="CmbSelectReceiptnmethod" Margin="10" Grid.Column="1" Grid.Row="1" >
+            </ComboBox>
+            
+
+            
+            <TextBlock  Grid.Row="3" Grid.Column="0" Style="{StaticResource UiTextBlockStyle}" Text="Open Cash Drawer" VerticalAlignment="Center" Margin="40 0 0 0"/>
+           
+            
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Style="{StaticResource UiLabelHeadingStyle}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Kitchen Printer Settings" />
+            
+            <TextBlock Style="{StaticResource UiTextBlockStyle}" Margin="40 0 0 0" Text="Select Printer" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="LblSelctKot1" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap"  />
+            <TextBlock Style="{StaticResource UiTextBlockStyle}" Margin="40 0 0 0" Text="Select Printer 2" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="LblSelctKot2" Grid.Column="0" Grid.Row="2" TextWrapping="Wrap"  />
+            
+            
+
+            <ToggleButton Grid.Row="3" Grid.Column="1" Style="{StaticResource ToggleSwitchStyle}" x:Name="ChkturnKot1" Content="Turn On Customer Display" Margin="10" HorizontalAlignment="Left"/>
+            <TextBlock  Grid.Row="3" Grid.Column="0" Style="{StaticResource UiTextBlockStyle}" Text="Open Cash Drawer" VerticalAlignment="Center" Margin="40 0 0 0"/>
+
+            <ToggleButton Grid.Row="4" Grid.Column="1" Style="{StaticResource ToggleSwitchStyle}" x:Name="ChkturnKot2" Content="Turn On Customer Display" Margin="10" HorizontalAlignment="Left"/>
+            <TextBlock  Grid.Row="4" Grid.Column="0" Style="{StaticResource UiTextBlockStyle}" Text="Open Cash Drawer" VerticalAlignment="Center" Margin="40 0 0 0"/>
+            <ComboBox  Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}" Margin="10" Grid.Column="1" Grid.Row="1" x:Name="CmbKitchenPrinter" />
+            <ComboBox Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}" Margin="10" Grid.Column="1" Grid.Row="2" x:Name="CmbKitchenPrinter1" />
+
+        </Grid>
+
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Style="{StaticResource UiLabelHeadingStyle}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Hold Printer Settings" />
+            <TextBlock Style="{StaticResource UiTextBlockStyle}" Margin="40 0 0 0" Text="Select Printer" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="LblSelctHold" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap"  />
+
+            <ComboBox Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}" x:Name="CmbHoldPrinter"  Margin="10" Grid.Column="1" Grid.Row="1" />
+
+            <ToggleButton Grid.Row="2" Grid.Column="1" Style="{StaticResource ToggleSwitchStyle}" x:Name="ChkturnHold" Content="Turn On Customer Display" Margin="10" HorizontalAlignment="Left" Unchecked="ChkturnHold_Unchecked" Checked="ChkturnHold_Checked"/>
+            <TextBlock  Grid.Row="2" Grid.Column="0" Style="{StaticResource UiTextBlockStyle}" Text="Turn on Hold" VerticalAlignment="Center" Margin="40 0 0 0"/>
+
+            <ToggleButton Grid.Row="3" Grid.Column="1" Style="{StaticResource ToggleSwitchStyle}" x:Name="ChkHoldprice" Content="Turn On Customer Display" Margin="10" HorizontalAlignment="Left"/>
+            <TextBlock  Grid.Row="3" Grid.Column="0" Style="{StaticResource UiTextBlockStyle}" Text="Print Price" VerticalAlignment="Center" Margin="40 0 0 0"/>
+
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Style="{StaticResource UiLabelHeadingStyle}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Marketplace Printer Settings" />
+            <TextBlock Style="{StaticResource UiTextBlockStyle}" Margin="40 0 0 0" Text="Select Printer" 
+                       VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="LblMarketprint" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap"  />
+
+            <ComboBox Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}" 
+                      x:Name="CmbMarketPrinter"  Margin="10" Grid.Column="1" Grid.Row="1" />
+
+
+        </Grid>
+
+        <Button Margin="80 0 80 10" x:Name="BtnCancel" Style="{StaticResource AmountPinGiftPin}" Content="Cancel" Grid.Column="0" Grid.Row="2"/>
+        <Button Margin="80 0 80 10" x:Name="BtnUpdate" Style="{StaticResource AmountPinGiftPin}"  Content="Update" Grid.Column="1" Grid.Row="2" Click="BtnUpdate_Click"/>-->
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--2nd box-->
+
+
+
+
+        <!--3rd box-->
+
+        <!--<Label Style="{StaticResource UiLabelHeadingStyle}" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Hold Printer Settings" />
+        <TextBlock Style="{StaticResource UiTextBlockStyle}" Margin="40 0 0 0" Text="Select Printer" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="LblSelctHold" Grid.Column="0" Grid.Row="7" TextWrapping="Wrap"  />
+        
+
+        
+        
+        -->
+        <!--4th box-->
+        <!--
+        <Label Style="{StaticResource UiLabelHeadingStyle}" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Marketplace Printer Settings" />
+        <TextBlock Style="{StaticResource UiTextBlockStyle}" Margin="40 0 0 0" Text="Select Printer" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="LblMarketprint" Grid.Column="2" Grid.Row="7" TextWrapping="Wrap"  />
+
+        <ComboBox x:Name="CmbMarketPrinter"  Margin="10" Grid.Column="3" Grid.Row="7" />
+        -->
+        <!--Btns-->
+        <!--
+        <Button  x:Name="BtnCancel" Style="{StaticResource AmountPinGiftPin}" Content="Cancel" Grid.Column="1" Grid.Row="11"/>
+        <Button x:Name="BtnUpdate" Style="{StaticResource AmountPinGiftPin}"  Content="Update" Grid.Column="2" Grid.Row="11" Click="BtnUpdate_Click"/>-->
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins, serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+}
+.container .logo {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+.container .logo img {
+  width: 100%;
+}
+.container .main-banner {
+  background-color: #ebebeb;
+  padding: 30px 50px;
+  text-align: center;
+  width: 100%;
+  background-color: rgb(255, 73, 73);
+  color: #f7f7f7;
+}
+.container .main-banner h2 {
+  font-weight: 550;
+  margin-bottom: 5px;
+}
+.container .main-banner .inv-amount {
+  margin-bottom: 25px;
+}
+.container .main-banner p:nth-child(3) {
+  transform: scale(0.8);
+}
+.container .main-banner p:nth-child(4) {
+  font-weight: 500;
+  font-size: 2.4rem;
+}
+.container .appreciation {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.container .appreciation button {
+  padding: 10px 50px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  background-color: rgb(255, 73, 73);
+  font-weight: 500;
+  font-size: 1rem;
+  color: #f7f7f7;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.container .appreciation .icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.container .appreciation .icons img {
+  width: 80px;
+  height: 50px;
+}
+.container .contacts {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.container footer {
+  text-align: center;
+  background-color: #f4f5f9;
+  padding: 15px;
+  font-size: 0.9rem;
+  color: grey;
+}
+.container footer .top {
+  margin-bottom: 10px;
+}
+.container footer .bottom .footer-logo {
+  width: 120px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+}
+.container footer .bottom .footer-logo img {
+  width: 100%;
+}
+.container footer .bottom .bold-text {
+  font-weight: 500;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container {
+    max-width: 800px;
+  }
+}

@@ -1,0 +1,70 @@
+﻿<Window x:Class="Pospointe.FrmOverrideUsers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pospointe"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Loaded="Window_Loaded"
+        Height="1080" Width="1920"
+        WindowStyle="None"
+        Title="FrmOverrideUsers">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0"  Background="{StaticResource BorderFillBrush}" CornerRadius="20 20 0 0" />
+            <Border Grid.Row="1" Grid.RowSpan="2"  Background="{StaticResource Appboarderfill}" CornerRadius="0 0 20 20"  />
+
+
+
+            <TextBlock Text="Select a User to Override" Style="{StaticResource Header1}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <UniformGrid Grid.Row="1" x:Name="WrpOverride"/>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Button Grid.Column="1" Content="Close" Margin="50 0 50 0" Style="{StaticResource NormBtn}"
+                        VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                        x:Name="BtnClose" Click="BtnClose_Click" />
+
+
+            </Grid>
+
+
+
+
+        </Grid>
+
+
+
+    </Grid>
+</Window>

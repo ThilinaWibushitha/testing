@@ -1,0 +1,210 @@
+﻿<Window x:Class="Pospointe.SecondScreens.FrmCusDis"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pospointe.SecondScreens"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Background="{StaticResource BackgroundBrush}"
+        
+        Title="FrmCusDis" Height="480" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+           <RowDefinition Height="8*"/>
+           <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+
+            </Grid.RowDefinitions>
+
+            <Border CornerRadius="20" Margin="5" Background="{StaticResource Appboarderfill}" Grid.Column="0" Grid.Row="0">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock FontWeight="Bold" FontSize="16" Style="{StaticResource UiTextBlockStyle}" 
+                   x:Name="TxtSubtotall" Text="SUBTOTAL" HorizontalAlignment="Center" />
+                    <Rectangle Height="1" Fill="Gray" Margin="0,5" Width="80" />
+                    <TextBlock FontWeight="Bold" FontSize="20" Style="{StaticResource UiTextBlockStyle}" 
+                   x:Name="LblSubtotal" Text="0.00" HorizontalAlignment="Center" />
+                </StackPanel>
+            </Border>
+
+
+
+            <Border Margin="5" CornerRadius="20" Background="{StaticResource Appboarderfill}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock FontWeight="Bold" FontSize="16" Style="{StaticResource UiTextBlockStyle}" 
+                   x:Name="TxtDiscount" Text="DISCOUNT" HorizontalAlignment="Center" />
+                    <Rectangle Height="1" Fill="Gray" Margin="0,5" Width="80" />
+                    <TextBlock FontWeight="Bold" FontSize="20" Style="{StaticResource UiTextBlockStyle}" 
+                   x:Name="LblDiscount" Text="0.00" HorizontalAlignment="Center" />
+                </StackPanel>
+            </Border>
+
+
+            <Border Margin="5" CornerRadius="20" Background="{StaticResource Appboarderfill}" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock FontWeight="Bold" FontSize="16" Style="{StaticResource UiTextBlockStyle}" 
+                   x:Name="TxtTax" TextWrapping="Wrap" Text="TAX" HorizontalAlignment="Center" />
+                    <Rectangle Height="1" Fill="Gray" Margin="0,5" Width="80" />
+                    <TextBlock FontWeight="Bold" FontSize="20" Style="{StaticResource UiTextBlockStyle}" 
+                   x:Name="LblTax" Text="0.00" HorizontalAlignment="Center" />
+                </StackPanel>
+            </Border>
+
+
+            <Border Margin="5" CornerRadius="20" Background="{StaticResource Appboarderfill}" Grid.Column="3" Grid.Row="0" Grid.RowSpan="2">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock FontWeight="Bold" FontSize="16" Style="{StaticResource UiTextBlockStyle}" 
+                   x:Name="TxtTotal" Text="TOTAL" HorizontalAlignment="Center" />
+                    <Rectangle Height="1" Fill="Gray" Margin="0,5" Width="80" />
+                    <TextBlock FontWeight="Bold" FontSize="20" Style="{StaticResource UiTextBlockStyle}" 
+                   x:Name="LblTotal" Text="0.00" HorizontalAlignment="Center" />
+                </StackPanel>
+            </Border>
+
+
+
+
+
+        </Grid>
+
+        <MediaElement Grid.Column="0"
+      Source="https://fileserver.asnit.us/UploadedFiles/Pospointe/30f006cd-437a-45dc-b187-434d9668c3e1.mp4"
+      LoadedBehavior="Play"
+      UnloadedBehavior="Manual"
+      Stretch="UniformToFill"
+      Loaded="MediaElement_Loaded" />
+
+
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="8*"/>
+
+            </Grid.RowDefinitions>
+
+            <TextBlock Name="DateTimeDisplay" 
+               Grid.Row="0" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Center" 
+               FontSize="16" 
+               FontWeight="Bold" />
+
+            <Border Margin="0 0 25 0" Grid.Row="1" Background="{StaticResource Appboarderfill}" CornerRadius="10" BorderThickness="1" BorderBrush="#D3D3D3" Padding="5">
+                <DataGrid Grid.Row="1" x:Name="CustomerItemGrid"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                          ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+              AutoGenerateColumns="False"
+              IsReadOnly="True"
+              Background="{DynamicResource DataGridBackground}"
+              BorderThickness="0"
+              GridLinesVisibility="None"
+              Foreground="{DynamicResource DataGridTextBrush}"
+              HorizontalGridLinesBrush="Transparent"
+              VerticalGridLinesBrush="Transparent"
+              ColumnHeaderHeight="50"
+              RowHeight="50"
+              Padding="10"
+              AlternatingRowBackground="{DynamicResource DataGridRowBackground}"
+              RowBackground="{DynamicResource DataGridBackground}">
+
+                    <DataGrid.Resources>
+                        <!-- Header Style -->
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="{StaticResource DataGridRowBackground}" />
+                            <Setter Property="Foreground" Value="{StaticResource DataGridTextBrush}" />
+                            <Setter Property="FontSize" Value="18" />
+                            <Setter Property="FontWeight" Value="Bold" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                            <Setter Property="Padding" Value="10" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="DataGridColumnHeader">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="8" Padding="5">
+                                            <TextBlock Text="{TemplateBinding Content}" 
+                                           Foreground="{TemplateBinding Foreground}" 
+                                           HorizontalAlignment="Left" 
+                                           VerticalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                        <!-- Row Style -->
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="SnapsToDevicePixels" Value="True" />
+                            <Setter Property="Padding" Value="10" />
+                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="DataGridRow">
+                                        <Border Background="{TemplateBinding Background}" 
+                                    CornerRadius="5" 
+                                    Padding="5" 
+                                    Margin="5,2,5,2">
+                                            <DataGridCellsPresenter />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DataGrid.Resources>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Item"  Binding="{Binding ItemName}" Width="5*" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Left" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                    <Setter Property="Margin" Value="15,0,0,0" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+
+                        <!-- Quantity Column: Adjusted width -->
+                        <DataGridTextColumn Header="Qty" Binding="{Binding Quantity}" Width="2*">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Left" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+
+                        <!-- Price Column: Adjusted width -->
+                        <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="2*">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Left" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                    <Setter Property="Margin" Value="0,0,15,0" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+            </Border>
+
+        </Grid>
+
+    </Grid>
+</Window>

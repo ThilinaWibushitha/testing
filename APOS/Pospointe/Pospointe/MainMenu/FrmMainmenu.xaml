@@ -1,0 +1,205 @@
+﻿<Window x:Class="Pospointe.MainMenu.FrmMainmenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:Pospointe.MainMenu"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Background="{DynamicResource BackgroundBrush}"
+        Loaded="Window_Loaded"
+        Title="FrmMainmenu" Height="768" Width="1366">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.5*" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="2.5*" />
+            </Grid.ColumnDefinitions>
+
+
+            <Border Grid.Column="1" BorderBrush="{StaticResource BorderLineBrush}" 
+                    BorderThickness="2" Background="{StaticResource BorderFillBrush}" 
+                    CornerRadius="0,0,33,33">
+                <Image Source="https://i.postimg.cc/7YKbKFNG/POS-POINTE-1.png" 
+                       Stretch="Uniform" />
+            </Border>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="3*" />
+                
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="LblUser" HorizontalAlignment="Center" VerticalAlignment="Center" 
+           Grid.Column="2" FontSize="16" TextWrapping="Wrap" />
+
+            <Button Margin="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" x:Name="BtnEnterpos" Click="BtnEnterpos_Click" Style="{StaticResource StyledUser}">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="AccountArrowRight"  Style="{StaticResource menuButtonIcon}"  VerticalAlignment="Center" Width="60" Height="60" Margin="30,0,0,0" />
+                    <TextBlock FontSize="35" Text="POS" VerticalAlignment="Center" TextWrapping="Wrap" Margin="30,0,0,0" />
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" Margin="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" x:Name="BtnOnlineorders" Style="{StaticResource StyledUser}" Click="BtnOnlineorders_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="CartArrowRight"  Style="{StaticResource menuButtonIcon}"  VerticalAlignment="Center" Width="60" Height="60" Margin="30,0,0,0" />
+                    <TextBlock FontSize="35" Text="Online Orders" VerticalAlignment="Center" TextWrapping="Wrap" Width="140" Margin="30,0,0,0" />
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="1" Grid.Row="3" Margin="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" x:Name="BtnBtnShift" Style="{StaticResource StyledUser}" Click="BtnShift_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="AccountClock"  Style="{StaticResource menuButtonIcon}"  VerticalAlignment="Center" Width="60" Height="60" Margin="30,0,0,0" />
+                    <TextBlock FontSize="20" Text="Shift Start / Close" VerticalAlignment="Center" TextWrapping="Wrap" Margin="30,0,0,0" />
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="2"
+                    
+                    Grid.Row="3"
+                    Margin="15"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    x:Name="BtnBtnShiftReport"
+                    Style="{StaticResource StyledUser}"
+                    Click="BtnBtnShiftReport_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="ChartBoxMultiple"
+                                                Style="{StaticResource menuButtonIcon}"
+                                                VerticalAlignment="Center"
+                                                Width="60"
+                                                Height="60"
+                                                Margin="30,0,0,0" />
+                    <TextBlock FontSize="20"
+                               Text="Shift Report"
+                               VerticalAlignment="Center"
+                               TextWrapping="Wrap"
+                               Margin="30,0,0,0" />
+                </StackPanel>
+            </Button>
+
+
+            <Button Grid.Column="3" Grid.Row="1" Margin="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                    x:Name="BtnBtnReports" Style="{StaticResource StyledUser}" Click="BtnBtnReports_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="ChartBoxMultiple"  Style="{StaticResource menuButtonIcon}"  VerticalAlignment="Center" Width="60" Height="60" Margin="30,0,0,0" />
+                    <TextBlock FontSize="20"  Text="Report" VerticalAlignment="Center" TextWrapping="Wrap" Margin="30,0,0,0" />
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="3" Grid.Row="2" Margin="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                    x:Name="BtnSalesoverview" Style="{StaticResource StyledUser}" Click="BtnSalesoverview_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="ChartPie"  Style="{StaticResource menuButtonIcon}"  VerticalAlignment="Center" Width="60" Height="60" Margin="30,0,0,0" />
+                    <TextBlock FontSize="20" Text="Sales Overview" VerticalAlignment="Center" TextWrapping="Wrap" Width="150" Margin="30,0,0,0" />
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="3" Grid.Row="3" Margin="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                    x:Name="BtnBatchClose" Style="{StaticResource StyledUser}" Click="BtnBatchClose_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="Card"  Style="{StaticResource menuButtonIcon}"  VerticalAlignment="Center" Width="60" Height="60" Margin="30,0,0,0" />
+                    <TextBlock FontSize="20" Text="Batch Close" VerticalAlignment="Center" TextWrapping="Wrap" Margin="30,0,0,0" Width="150" />
+                </StackPanel>
+            </Button>
+
+
+
+
+
+
+        </Grid>
+
+
+
+
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="10*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Border x:Name="SnackbarBorder"
+                    Background="#333"
+                    CornerRadius="8"
+                    Padding="10"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,20"
+                    Visibility="Collapsed"
+                    Opacity="0">
+                
+                <TextBlock x:Name="SnackbarText"
+                           Foreground="White"
+                           FontWeight="Bold"
+                           Text="Syncing... Please wait"
+                           TextAlignment="Center" />
+            </Border>
+
+
+            <Border Grid.Column="1" BorderBrush="{StaticResource BorderLineBrush}" BorderThickness="2" 
+                    Background="{StaticResource BorderFillBrush}" CornerRadius="33,33,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+
+
+                    <Button x:Name="BtnTroubleshoot" Style="{StaticResource IconOnlyButtonStyle}" Click="BtnTroubleshoot_Click" Grid.Column="0">
+                        <iconPacks:PackIconMaterial Kind="CloudRefreshOutline" Style="{StaticResource IconOnlyButtonIconStyle}" />
+                    </Button>
+
+
+                    <Button x:Name="BtnRequestSupport" Style="{StaticResource IconOnlyButtonStyle}" Click="BtnRequestSupport_Click" Grid.Column="1">
+                        <iconPacks:PackIconMaterial Kind="FaceAgent" Style="{StaticResource IconOnlyButtonIconStyle}" />
+                    </Button>
+
+                    <Button x:Name="BtnClock" Style="{StaticResource IconOnlyButtonStyle}" Click="BtnClock_Click" Grid.Column="4">
+                        <iconPacks:PackIconMaterial Kind="AccountClockOutline" Style="{StaticResource IconOnlyButtonIconStyle}" />
+                    </Button>
+
+                    <Button x:Name="BtnLogout" Style="{StaticResource IconOnlyButtonStyle}" Click="BtnLogout_Click" Grid.Column="5">
+                        <iconPacks:PackIconMaterial Kind="Logout" Style="{StaticResource IconOnlyButtonIconStyle}" />
+                    </Button>
+
+
+
+
+
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

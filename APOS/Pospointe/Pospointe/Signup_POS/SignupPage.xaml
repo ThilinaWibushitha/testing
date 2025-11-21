@@ -1,0 +1,282 @@
+﻿<Page x:Class="Pospointe.Signup_POS.SignupPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pospointe.Signup_POS"
+      mc:Ignorable="d"
+      Loaded="Page_Loaded"
+      Background="#0D0D0D"
+      Title="SignupPage">
+
+    <Page.Resources>
+        <Storyboard x:Key="BlinkAnimation" RepeatBehavior="Forever" AutoReverse="True">
+            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                        From="#B31B1B" To="#FF4444"
+                        Duration="0:0:0.6" />
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#1A1A1A" Padding="20">
+            <TextBlock Text="Sign In Options" 
+                       FontSize="32" 
+                       FontFamily="Segoe UI Semibold"
+                       Foreground="#B31B1B"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+        </Border>
+
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Border Grid.Column="0" 
+                        CornerRadius="15" 
+                        Padding="25">
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#121212" Offset="0.0"/>
+                            <GradientStop Color="#1E1E1E" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    
+                    <StackPanel>
+                        <StackPanel Margin="0,0,0,20">
+                            <TextBlock Text="Sign In Online" 
+                                       FontSize="24" 
+                                       FontWeight="SemiBold" 
+                                       Foreground="#B31B1B"
+                                       FontFamily="Segoe UI Semibold"/>
+                            <TextBlock Text="Quickly register your device online" 
+                                       FontSize="16" 
+                                       Foreground="#B0B0B0"
+                                       Margin="0,5,0,0"
+                                       FontFamily="Segoe UI"/>
+                        </StackPanel>
+
+                        <Border Background="#2D2D2D" 
+                                CornerRadius="10" 
+                                Padding="15"
+                                Margin="0,0,0,25">
+
+                            
+                            <TextBlock x:Name="TxtCode" 
+                                       FontSize="42" 
+                                       FontWeight="Bold" 
+                                       Foreground="#B31B1B" 
+                                       HorizontalAlignment="Center"
+                                       TextTrimming="CharacterEllipsis"
+                                       FontFamily="Segoe UI"/>
+                        </Border>
+
+                        <Grid Margin="0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="1" 
+                                       Width="30"
+                                       Height="30"
+                                       FontSize="18"
+                                       Foreground="White"
+                                       Background="#B31B1B"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,15,0"
+                                       FontFamily="Segoe UI"/>
+
+                            <TextBlock Grid.Column="1"
+                                       Text="Visit MyPosPointe.com/Code and sign in with your account credentials." 
+                                       FontSize="16" 
+                                       Foreground="#B0B0B0" 
+                                       TextWrapping="Wrap"
+                                       FontFamily="Segoe UI"/>
+                        </Grid>
+
+                        <Grid Margin="0,25">
+                            
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="2" 
+                                       Width="30"
+                                       Height="30"
+                                       FontSize="18"
+                                       Foreground="White"
+                                       Background="#B31B1B"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,15,0"
+                                       FontFamily="Segoe UI"/>
+
+                            <TextBlock Grid.Column="1"
+                                       Text="Enter the activation code displayed above to register your device." 
+                                       FontSize="16" 
+                                       Foreground="#B0B0B0" 
+                                       TextWrapping="Wrap"
+                                       FontFamily="Segoe UI"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+
+                <Border Grid.Column="2" 
+                        CornerRadius="15" 
+                        Padding="25">
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#121212" Offset="0.0"/>
+                            <GradientStop Color="#1E1E1E" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    
+                    
+                    <StackPanel>
+                        <StackPanel Margin="0,0,0,20">
+                            <TextBlock Text="QR Code Sign In" 
+                                       FontSize="24" 
+                                       FontWeight="SemiBold" 
+                                       Foreground="#B31B1B"
+                                       FontFamily="Segoe UI Semibold"/>
+                            <TextBlock Text="Scan QR code with your mobile device" 
+                                       FontSize="16" 
+                                       Foreground="#B0B0B0"
+                                       Margin="0,5,0,0"
+                                       FontFamily="Segoe UI"/>
+                        </StackPanel>
+
+                        <Border Background="#2D2D2D" 
+                                CornerRadius="10" 
+                                Padding="20"
+                                Margin="0,0,0,25"
+                                HorizontalAlignment="Center">
+                            <Image x:Name="QrCodeImage" 
+                                   Width="250" 
+                                   Height="250"
+                                   Stretch="Uniform"/>
+                        </Border>
+
+                        <Grid Margin="0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="1" 
+                                       Width="30"
+                                       Height="30"
+                                       FontSize="18"
+                                       Foreground="White"
+                                       Background="#B31B1B"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,15,0"
+                                       FontFamily="Segoe UI"/>
+
+                            <TextBlock Grid.Column="1"
+                                       Text="Open your camera app and scan the QR code." 
+                                       FontSize="16" 
+                                       Foreground="#B0B0B0" 
+                                       TextWrapping="Wrap"
+                                       FontFamily="Segoe UI"/>
+                        </Grid>
+
+                        <Grid Margin="0,25">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="2" 
+                                       Width="30"
+                                       Height="30"
+                                       FontSize="18"
+                                       Foreground="White"
+                                       Background="#B31B1B"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,15,0"
+                                       FontFamily="Segoe UI"/>
+
+                            <TextBlock Grid.Column="1"
+                                       Text="Sign in to your account for automatic activation." 
+                                       FontSize="16" 
+                                       Foreground="#B0B0B0" 
+                                       TextWrapping="Wrap"
+                                       FontFamily="Segoe UI"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+
+
+
+
+        <Border Grid.Row="2" Background="#1A1A1A" Padding="15,10">
+            <StackPanel Grid.Column="0"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        Margin="0,0,10,0">
+
+
+                <TextBlock FontSize="15"
+                           Foreground="#CCCCCC"
+                           FontFamily="Segoe UI"
+                           VerticalAlignment="Center"
+                           TextWrapping="Wrap">
+                    
+                    <Run Text="For assistance, call " />
+                    <Run Text="+1 888-666-0227" Foreground="#B31B1B" FontWeight="Bold"/>
+                    <Run Text=" and provide the code shown to the tech agent when you click " />
+                    
+                </TextBlock>
+                
+
+                <Button Content="Get Support"
+                        x:Name="BtnGetsupport"
+                        Loaded="BtnGetsupport_Loaded"
+                        Click="BtnGetsupport_Click"
+                        Padding="12,6"
+                        Margin="5,0,0,0"
+                        Background="#B31B1B"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        BorderThickness="0"
+                        Cursor="Hand"/>
+            </StackPanel>
+
+
+
+
+        </Border>
+
+
+
+
+
+
+    </Grid>
+</Page>

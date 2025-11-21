@@ -1,0 +1,91 @@
+﻿<Window x:Class="Pospointe.PhonePad"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        Title="Phone Number Pad"
+        ResizeMode="NoResize"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        Width="1366" Height="768"
+        WindowStyle="None"
+        Loaded="Window_Loaded"
+        
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Grid Background="#E0000000">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2.8*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="{DynamicResource BackgroundBrush}" Grid.Column="1" Grid.Row="1" CornerRadius="20" />
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.8*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="8*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource Appboarderfill}" CornerRadius="20 20 0 0" />
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" x:Name="EmterPH" Style="{StaticResource Header2}" Text="Enter Phone Number" TextWrapping="Wrap"
+                           VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
+
+                <Button Margin="0 0 10 0" VerticalAlignment="Center" HorizontalAlignment="Right" Background="Transparent" x:Name="BtnClose" Style="{StaticResource IconOnlyButtonStyle}" Grid.Column="2" Click="BtnClose_Click">
+                    <iconPacks:PackIconFontAwesome Style="{StaticResource Icobtnico}" Kind="CircleXmarkSolid" Height="30" Width="30" VerticalAlignment="Center" Foreground="#1D1E27" />
+                </Button>
+            </Grid>
+
+            <TextBox Margin="10" Grid.Row="1" Style="{StaticResource searchTextbox}" x:Name="PhoneNumberDisplay" FontSize="24" 
+                     VerticalAlignment="Center" TextAlignment="Center" IsReadOnly="False"
+                      />
+
+            <Grid Margin="10" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Content="1" Click="BtnNumber_Click" Style="{StaticResource PinpadNumberpad}" />
+                <Button Content="2" Click="BtnNumber_Click" Style="{StaticResource PinpadNumberpad}" Grid.Row="0" Grid.Column="1" />
+                <Button Content="3" Click="BtnNumber_Click" Style="{StaticResource PinpadNumberpad}" Grid.Row="0" Grid.Column="2" />
+                <Button Content="4" Click="BtnNumber_Click" Style="{StaticResource PinpadNumberpad}" Grid.Row="1" Grid.Column="0"/>
+                <Button Content="5" Click="BtnNumber_Click" Style="{StaticResource PinpadNumberpad}" Grid.Row="1" Grid.Column="1"/>
+                <Button Content="6" Click="BtnNumber_Click" Style="{StaticResource PinpadNumberpad}" Grid.Row="1" Grid.Column="2"/>
+                <Button Content="7" Click="BtnNumber_Click" Style="{StaticResource PinpadNumberpad}" Grid.Row="2" Grid.Column="0"/>
+                <Button Content="8" Click="BtnNumber_Click" Style="{StaticResource PinpadNumberpad}" Grid.Row="2" Grid.Column="1"/>
+                <Button Content="9" Click="BtnNumber_Click" Style="{StaticResource PinpadNumberpad}" Grid.Row="2" Grid.Column="2"/>
+                <Button Content="0" Click="BtnNumber_Click" Style="{StaticResource PinpadNumberpad}" Grid.Row="3" Grid.Column="1" />
+
+                <Button Grid.Column="0" Grid.Row="3" Background="Transparent" x:Name="BtnBackspace" Style="{StaticResource IconButtonStyle}" Click="BtnBackspace_Click">
+                    <iconPacks:PackIconFontAwesome Style="{StaticResource Icobtnico}" Kind="DeleteLeftSolid" Height="50" Width="80"/>
+                </Button>
+
+                <Button Background="Transparent" x:Name="BtnSubmit" Style="{StaticResource IconButtonStyle}" Grid.Column="2" Grid.Row="3" Click="BtnSubmit_Click">
+                    <iconPacks:PackIconFontAwesome Style="{StaticResource Icobtnico}" Kind="CircleCheckSolid" Height="50" Width="80" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

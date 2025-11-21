@@ -1,0 +1,154 @@
+﻿<Window x:Class="Pospointe.GuftCard.FrmGiftcard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        Background="Transparent"
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        mc:Ignorable="d"
+        Title="Gift Card Processing"
+        Height="1080"
+        Width="1920">
+
+    <Grid Background="#80000000" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+        <!-- Grid Definitions -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Border Background -->
+        <Border Background="{StaticResource BorderFillBrush}" 
+                Grid.Column="1" 
+                Grid.ColumnSpan="3" 
+                Grid.Row="1" 
+                Grid.RowSpan="3" 
+                CornerRadius="20" />
+
+        <!-- Content Grid -->
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Gift Card Amount Buttons -->
+            <Button Grid.Column="0" Grid.Row="0" x:Name="Btn25" Style="{StaticResource SecBtns}" Click="Btn25_Click">
+                <TextBlock Text="$25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+
+            <Button Grid.Column="1" Grid.Row="0" x:Name="Btn50" Style="{StaticResource SecBtns}" Click="Btn50_Click">
+                <TextBlock Text="$50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="1" x:Name="Btn75" Style="{StaticResource SecBtns}" Click="Btn75_Click">
+                <TextBlock Text="$75" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+
+            <Button Grid.Column="1" Grid.Row="1" x:Name="Btn100" Style="{StaticResource SecBtns}" Click="Btn100_Click">
+                <TextBlock Text="$100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="2" x:Name="Btn125" Style="{StaticResource SecBtns}" Click="Btn125_Click">
+                <TextBlock Text="$125" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+
+            <Button Grid.Column="1" Grid.Row="2" x:Name="Btn150" Style="{StaticResource SecBtns}" Click="Btn150_Click">
+                <TextBlock Text="$150" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="3" x:Name="Btn175" Style="{StaticResource SecBtns}" Click="Btn175_Click">
+                <TextBlock Text="$175" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+
+            <Button Grid.Column="1" Grid.Row="3" x:Name="Btn200" Style="{StaticResource SecBtns}" Click="Btn200_Click">
+                <TextBlock Text="$200" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+
+            <!-- Functional Buttons -->
+            <Button x:Name="BtnBalanceCheck" Style="{StaticResource PayGift}" Grid.Column="2" Click="BtnBalanceCheck_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="CreditCardCheck" 
+                                                Style="{StaticResource menuButtonIcon}" 
+                                                Width="50" 
+                                                Height="50" 
+                                                Margin="10"/>
+                    <TextBlock Text="Balance Check" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="BtnReload" Style="{StaticResource PayGift}" Grid.Column="2" Grid.Row="1" Click="BtnReload_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="CreditCardRefresh" 
+                                                Style="{StaticResource menuButtonIcon}" 
+                                                Width="50" 
+                                                Height="50" 
+                                                Margin="10"/>
+                    <TextBlock Text="Reload Gift Card" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="BtnDeactivate" Style="{StaticResource PayGift}" Grid.Column="2" Grid.Row="2" Click="BtnDeactivate_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="CreditCardRemove" 
+                                                Style="{StaticResource menuButtonIcon}" 
+                                                Width="50" 
+                                                Height="50" 
+                                                Margin="10"/>
+                    <TextBlock Text="Deactivate" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="BtnActivate" Style="{StaticResource PayGift}" Grid.Column="2" Grid.Row="3" Click="BtnActivate_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="CreditCardCheck" 
+                                                Style="{StaticResource menuButtonIcon}" 
+                                                Width="50" 
+                                                Height="50" 
+                                                Margin="10"/>
+                    <TextBlock Text="Activate Card" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="BtnClose" Style="{StaticResource PayGift}" Grid.Column="2" Grid.Row="4" Click="BtnClose_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="CloseCircle" 
+                                                Style="{StaticResource menuButtonIcon}" 
+                                                Width="50" 
+                                                Height="50" 
+                                                Margin="10"/>
+                    <TextBlock Text="Close" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                </StackPanel>
+            </Button>
+
+            <!-- Footer Text -->
+            <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                       Style="{StaticResource UiTextBlockStyle}" Text="Gift Card Processing"/>
+        </Grid>
+    </Grid>
+</Window>

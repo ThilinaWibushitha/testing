@@ -1,0 +1,61 @@
+﻿<Window x:Class="Pospointe.MainMenu.FrmManageStores"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Manage Stores" Height="600" Width="900"
+        WindowStartupLocation="CenterScreen" Background="White">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Manage MarketPlace"
+                   FontSize="22" FontWeight="Bold"
+                   HorizontalAlignment="Center" Margin="0,10"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20">
+
+            <Border BorderThickness="2" BorderBrush="Gray" Padding="20" Margin="10" CornerRadius="8" Width="250">
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Text="Uber Eats" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <Image Source="https://fileserver.asnit.us/UploadedFiles/Pospointe/dbfc8791-43d7-4866-817c-f68d5494fbe4.png" Width="100" Margin="0,10"/>
+                    <TextBlock FontWeight="Bold" Margin="0,5"/>
+
+                    <StackPanel>
+                        <TextBlock Text="Deactivate until:" Margin="0,5"/>
+                        <DatePicker SelectedDate="" />
+                        <Button x:Name="BtnDeactivate" Content="Deactivate" Background="Red" Foreground="White" 
+                                Margin="0,10"/>
+
+                        <Button x:Name="BtnActivate" Content="Activate" Background="Black" Foreground="White"
+                                Margin="0,10"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+
+            <Border BorderThickness="2" BorderBrush="Gray" Padding="20" Margin="10" CornerRadius="8" Width="250">
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Text="Cart Pointe" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <Image Source="https://pospointe.com/wp-content/uploads/2023/04/POS_POINTE-1.png" Width="100" Margin="0,10"/>
+                    <TextBlock FontWeight="Bold" Margin="0,5"/>
+
+                    <StackPanel>
+                        <TextBlock Text="Deactivate until:" Margin="0,5"/>
+                        <DatePicker SelectedDate="" />
+                        <Button Content="Deactivate" Background="Red" Foreground="White"
+                                Margin="0,10"/>
+
+                        <Button Content="Activate" Background="Black" Foreground="White"
+                                Margin="0,10"/>
+                        
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,162 @@
+﻿<Window x:Class="Pospointe.LoginWindow.FrmSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:Pospointe.LoginWindow"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Background="{DynamicResource BackgroundBrush}"
+        Title="FrmSettings" Height="768" Width="1366">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="8*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="9.5*"/>
+            </Grid.RowDefinitions>
+            <ContentControl Grid.Row="1" Grid.Column="1"  x:Name="ContentDisplay" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        </Grid>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <!--Text="{Binding CurrentDateTime}"-->
+
+                <TextBlock x:Name="DateTimeTextBlock" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left"   
+                           TextWrapping="Wrap" Margin="10 0 0 0"
+                           Style="{StaticResource Header2}" />
+
+                <TextBlock Text="Settings" Style="{StaticResource Header1}" Grid.Row="1" Margin="10 0 0 0"
+                           VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                <Border Grid.Row="2" Background="{StaticResource BorderFillBrush}" CornerRadius="15"
+                        Margin="10 0 10 0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Margin="15" x:Name="BusinessLogo" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
+
+                        <TextBlock Margin="10,-20,10,0" VerticalAlignment="Center"
+                            Grid.Column="1" Grid.Row="0"
+                            x:Name="BsName"
+                            Text="Pospointe"
+                            FontSize="17"
+                            Style="{StaticResource Header3}"
+                            TextWrapping="Wrap"/>
+
+                        <TextBlock Margin="10,0,10,30" VerticalAlignment="Bottom"
+                            Grid.Column="1" Grid.Row="1"
+                            x:Name="BsAddress"
+                            Text=""
+                            Style="{StaticResource Header3}"
+                            FontSize="13"
+                            TextWrapping="Wrap"/>
+
+
+                    </Grid>
+                </Border>
+
+
+
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <ListView x:Name="ListViewControl" Margin="10" Background="{StaticResource BorderFillBrush}" 
+                          BorderThickness="0" SelectionChanged="ListView_SelectionChanged">
+
+                    <ListViewItem Tag="Software Update" Background="{StaticResource Appboarderfill}" Padding="10" Margin="0,0,0,5">
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="30" Height="30" Fill="Orange" RadiusX="8" RadiusY="8" Margin="5"/>
+                            <TextBlock Text="Software Update" FontSize="16" Foreground="Black" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Tag="Payment Integration" Background="{StaticResource Appboarderfill}" Padding="10" Margin="0,0,0,5">
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="30" Height="30" Fill="Blue" RadiusX="8" RadiusY="8" Margin="5"/>
+                            <TextBlock Text="Payment Integration" FontSize="16" Foreground="Black" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Tag="Printer Settings" Background="{StaticResource Appboarderfill}" Padding="10" Margin="0,0,0,5">
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="30" Height="30" Fill="Red" RadiusX="8" RadiusY="8" Margin="5"/>
+                            <TextBlock Text="Printer" FontSize="16" Foreground="Black" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Tag="Kitchen Printer" Background="{StaticResource Appboarderfill}" Padding="10" Margin="0,0,0,5">
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="30" Height="30" Fill="Red" RadiusX="8" RadiusY="8" Margin="5"/>
+                            <TextBlock Text="Kitchen Printer" FontSize="16" Foreground="Black" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Tag="Display" Background="{StaticResource Appboarderfill}" Padding="10" Margin="0,0,0,5">
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="30" Height="30" Fill="Gray" RadiusX="8" RadiusY="8" Margin="5"/>
+                            <TextBlock Text="Display" FontSize="16" Foreground="Black" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Tag="General" Background="{StaticResource Appboarderfill}" Padding="10" Margin="0,0,0,5" Selected="ListViewItem_Selected">
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="30" Height="30" Fill="Purple" RadiusX="8" RadiusY="8" Margin="5"/>
+                            <TextBlock Text="General" FontSize="16" Foreground="Black" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Tag="Online Orders" Background="{StaticResource Appboarderfill}" Padding="10" Margin="0,0,0,5">
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="30" Height="30" Fill="Green" RadiusX="8" RadiusY="8" Margin="5"/>
+                            <TextBlock Text="Online Orders" FontSize="16" Foreground="Black" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Tag="Exit" Background="{StaticResource Appboarderfill}" Padding="10" Margin="0,0,0,5">
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="30" Height="30" Fill="Purple" RadiusX="8" RadiusY="8" Margin="5"/>
+                            <TextBlock Text="Exit" FontSize="16" Foreground="Black" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                </ListView>
+
+
+            </Grid>
+
+
+
+        </Grid>
+
+
+
+
+
+    </Grid>
+</Window>

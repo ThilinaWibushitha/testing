@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="Pospointe.PosMenu.FrmViewRecall"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Pospointe.PosMenu"
+             mc:Ignorable="d"
+             Loaded="UserControl_Loaded"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="CardBrush" Color="#0D000000"/>
+        <CornerRadius x:Key="CardRadius">24</CornerRadius>
+        <Thickness x:Key="CardPadding">24</Thickness>
+        <Thickness x:Key="RowSpacing">0,8,0,8</Thickness>
+
+        <Style x:Key="LabelText" TargetType="TextBlock" BasedOn="{StaticResource UiTextBlockStyle}">
+            <Setter Property="Margin" Value="0,4,0,4"/>
+            <Setter Property="Opacity" Value="0.8"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+
+        <Style x:Key="ValueText" TargetType="TextBlock" BasedOn="{StaticResource UiTextBlockStyle}">
+            <Setter Property="Margin" Value="0,4,0,4"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+        </Style>
+
+        <Style x:Key="Divider" TargetType="Rectangle">
+            <Setter Property="Height" Value="1"/>
+            <Setter Property="Fill" Value="#1A000000"/>
+            <Setter Property="Margin" Value="0,12,0,12"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource BackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="800"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="1" Grid.Column="1"
+                Background="{StaticResource CardBrush}"
+                CornerRadius="{StaticResource CardRadius}"
+                Padding="{StaticResource CardPadding}">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="18" ShadowDepth="0" Opacity="0.25"/>
+            </Border.Effect>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <DockPanel Grid.Row="0" LastChildFill="True" Margin="0,0,0,12">
+                    <iconPacks:PackIconMaterial DockPanel.Dock="Left"
+                                                Kind="ReceiptText"
+                                                Width="28" Height="28" Margin="0,0,8,0"/>
+                    <TextBlock Text="Invoice Summary"
+                               Style="{StaticResource UiTextBlockStyle}"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+                </DockPanel>
+
+                <Rectangle Grid.Row="1" Style="{StaticResource Divider}"/>
+
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Invoice ID" Style="{StaticResource LabelText}" Margin="{StaticResource RowSpacing}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" x:Name="TxtInvoiceID" Style="{StaticResource ValueText}" Margin="{StaticResource RowSpacing}"/>
+
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Transaction Type" Style="{StaticResource LabelText}" Margin="{StaticResource RowSpacing}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" x:Name="TxtTranstype" Style="{StaticResource ValueText}" Margin="{StaticResource RowSpacing}"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Date Time" Style="{StaticResource LabelText}" Margin="{StaticResource RowSpacing}"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1" x:Name="TxtDateTime" Text="Date" Style="{StaticResource ValueText}" Margin="{StaticResource RowSpacing}"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Paid Method" Style="{StaticResource LabelText}" Margin="{StaticResource RowSpacing}"/>
+                    <TextBlock Grid.Row="3" Grid.Column="1" x:Name="TxtPaidMethod" Text="Paid" Style="{StaticResource ValueText}" Margin="{StaticResource RowSpacing}"/>
+                    
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Payment Breakdown" Style="{StaticResource LabelText}" Margin="{StaticResource RowSpacing}"/>
+                    
+                    <StackPanel Grid.Row="4" Grid.Column="1" x:Name="PaymentBreakdownPanel" Orientation="Vertical" Margin="{StaticResource RowSpacing}">
+                        <TextBlock x:Name="TxtCashAmount" Style="{StaticResource ValueText}" Visibility="Collapsed" Text="Cash:"/>
+                        <TextBlock x:Name="TxtCardAmount" Style="{StaticResource ValueText}" Visibility="Collapsed" Text="Card:"/>
+                        <TextBlock x:Name="TxtTipAmount"  Style="{StaticResource ValueText}" Visibility="Collapsed" Text="Tip:"/>
+                        <TextBlock x:Name="TxtDiscount"   Style="{StaticResource ValueText}" Visibility="Collapsed" Text="Discount:"/>
+                    </StackPanel>
+                    
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="Cashier" Style="{StaticResource LabelText}" Margin="{StaticResource RowSpacing}"/>
+                    <TextBlock Grid.Row="5" Grid.Column="1" x:Name="TxtCashierID" Text="CashierID" Style="{StaticResource ValueText}" Margin="{StaticResource RowSpacing}"/>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

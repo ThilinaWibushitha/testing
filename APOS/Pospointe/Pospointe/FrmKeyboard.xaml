@@ -1,0 +1,130 @@
+﻿<Window x:Class="Pospointe.FrmKeyboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        ResizeMode="NoResize"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Background="Transparent"
+        Title="FrmKeyboard" Width="1920" Height="1080"
+        AllowsTransparency="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid  Background="#80000000" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+        <Grid Grid.Row="0" Grid.Column="2" HorizontalAlignment="left" VerticalAlignment="Bottom">
+            <Button x:Name="BtnCancel"
+             Background="#FFFFFF"
+             BorderThickness="0"
+             Style="{StaticResource Icobtn}"
+             HorizontalAlignment="Right"
+             VerticalAlignment="Top"
+             Click="BtnCancel_Click">
+
+
+                <iconPacks:PackIconFontAwesome
+             Style="{StaticResource Icobtnico}"
+             Kind="CircleXmarkSolid"
+             Height="48" Width="48"
+             VerticalAlignment="Center"
+             Foreground="#FF0000"/>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            
+
+
+            <Border Background="{StaticResource BackgroundBrush}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="6"/>
+            
+            <TextBox Margin="20" Style="{StaticResource NormText}" x:Name="MyTextBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+
+            <UniformGrid  Grid.Row="1" Columns="11">
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Style="{StaticResource PinpadButton}" Content="1" Click="Key_Click"   />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Style="{StaticResource PinpadButton}" Content="2" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Style="{StaticResource PinpadButton}" Content="3" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Style="{StaticResource PinpadButton}" Content="4" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Style="{StaticResource PinpadButton}" Content="5" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Style="{StaticResource PinpadButton}" Content="6" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Style="{StaticResource PinpadButton}" Content="7" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Style="{StaticResource PinpadButton}" Content="8" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Style="{StaticResource PinpadButton}" Content="9" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Style="{StaticResource PinpadButton}" Content="0" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="-" Click="Key_Click" />
+            </UniformGrid>
+
+            <UniformGrid Grid.Row="2" Columns="10">
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="Q" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="W" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="E" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="R" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="T" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="Y" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="U" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="I" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="O" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="P" Click="Key_Click" />
+            </UniformGrid>
+
+            <UniformGrid Grid.Row="3" Columns="9" >
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="A" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="S" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="D" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="F" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="G" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="H" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="J" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="K" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="L" Click="Key_Click" />
+            </UniformGrid>
+
+            <UniformGrid Columns="7" Grid.Row="4">
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="Z" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="X" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="C" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="V" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="B" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="N" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="M" Click="Key_Click" />
+            </UniformGrid>
+
+            <UniformGrid Grid.Row="5" Columns="4" Margin="10">
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="Shift" Click="Shift_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="Space" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="Backspace" Click="Key_Click" />
+                <Button Margin="10"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource PinpadButton}" Content="Enter" Click="Key_Click"  />
+            </UniformGrid>
+
+        </Grid>
+        
+       
+
+        
+    </Grid>
+</Window>

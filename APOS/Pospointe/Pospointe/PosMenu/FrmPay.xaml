@@ -1,0 +1,125 @@
+﻿<Window x:Class="Pospointe.PosMenu.FrmPay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:Pospointe.PosMenu"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent"
+        Loaded="Window_Loaded"
+        Title="FrmPay" Width="1920" Height="1080"
+        AllowsTransparency="True">
+
+
+    <Grid >
+
+        <Grid.ColumnDefinitions>
+            
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+
+
+        </Grid.RowDefinitions>
+
+        <Border Background="#80000000" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="0" Grid.RowSpan="7"/>
+
+        <Border Margin="50 120 50 120" Background="{StaticResource BorderFillBrush}" CornerRadius="20" Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="7"  />
+
+        <TextBox Grid.Column="3" Style="{StaticResource NormText}" Grid.Row="1" x:Name="TxtPayamont"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" GotFocus="TxtPayamont_GotFocus" PreviewTextInput="TxtPayamont_PreviewTextInput" TextChanged="TxtPayamont_TextChanged" />
+
+
+        <Border Grid.Column="4" Grid.Row="1" Background="{StaticResource BorderFillBrush}" Padding="10" CornerRadius="20" Margin="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource Header2}" Grid.Column="0"   x:Name="LblBalance" Text="Amount" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TextBlock Style="{StaticResource Header2}" Grid.Column="1"   x:Name="LblBalanceAmount" Text="$100" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </Grid>
+        </Border>
+
+        <UniformGrid Grid.Row="3" Grid.Column="3" Rows="4" Columns="3"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+            <Button Margin="10" Content="1" Style="{StaticResource AmountPinGiftPin}" Click="NumericButton_Click" />
+            <Button Margin="10" Content="2" Style="{StaticResource AmountPinGiftPin}" Click="NumericButton_Click" />
+            <Button Margin="10" Content="3" Style="{StaticResource AmountPinGiftPin}" Click="NumericButton_Click" />
+            <Button Margin="10" Content="4" Style="{StaticResource AmountPinGiftPin}" Click="NumericButton_Click" />
+            <Button Margin="10" Content="5" Style="{StaticResource AmountPinGiftPin}" Click="NumericButton_Click" />
+            <Button Margin="10" Content="6" Style="{StaticResource AmountPinGiftPin}" Click="NumericButton_Click" />
+            <Button Margin="10" Content="7" Style="{StaticResource AmountPinGiftPin}" Click="NumericButton_Click" />
+            <Button Margin="10" Content="8" Style="{StaticResource AmountPinGiftPin}" Click="NumericButton_Click" />
+            <Button Margin="10" Content="9" Style="{StaticResource AmountPinGiftPin}" Click="NumericButton_Click" />
+            <Button Margin="10" Content="." Style="{StaticResource AmountPinGiftPin}" Click="NumericButton_Click" />
+            <Button Margin="10" Content="0" Style="{StaticResource AmountPinGiftPin}" Click="NumericButton_Click" />
+
+
+            <Button Margin="10" x:Name="BtnDlt" Style="{StaticResource AmountPinGiftPin}" Click="BtnDlt_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="Backspace"  Style="{StaticResource menuButtonIcon}"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" />
+                </StackPanel>
+            </Button>
+        </UniformGrid>
+
+        <UniformGrid Grid.Row="3" Grid.Column="4" Rows="3" Columns="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+            <Button x:Name="BtnCard" Style="{StaticResource PayGift}" Click="BtnCard_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="CreditCard"  Style="{StaticResource menuButtonIcon}"  VerticalAlignment="Center" Width="50" Height="50" Margin="30,0,0,0" />
+                    <TextBlock  Text="Card" VerticalAlignment="Center" TextWrapping="Wrap"  Margin="30,0,0,0" />
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="BtnGiftCard" Style="{StaticResource PayGift}" Click="BtnGiftCard_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="WalletGiftcard"  Style="{StaticResource menuButtonIcon}"  VerticalAlignment="Center" Width="50" Height="50" Margin="30,0,0,0" />
+                    <TextBlock  Text="Gift Card" VerticalAlignment="Center" TextWrapping="Wrap"  Margin="30,0,0,0" />
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="BtnCash" Style="{StaticResource PayGift}" Click="BtnCash_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="Cash"  Style="{StaticResource menuButtonIcon}"  VerticalAlignment="Center" Width="50" Height="50" Margin="30,0,0,0" />
+                    <TextBlock  Text="Cash" VerticalAlignment="Center" TextWrapping="Wrap"  Margin="30,0,0,0" />
+                </StackPanel>
+            </Button>
+        </UniformGrid>
+
+
+        <UniformGrid Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" Rows="1" Columns="6"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button Margin="10" x:Name="BtnQ5" Click="BtnQ5_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="$  5" Style="{StaticResource AmountPinGiftPin}" />
+            <Button Margin="10" x:Name="Btn10" Click="Btn10_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="$ 10" Style="{StaticResource AmountPinGiftPin}" />
+            <Button Margin="10" x:Name="Btn20" Click="Btn20_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="$ 20" Style="{StaticResource AmountPinGiftPin}" />
+            <Button Margin="10" x:Name="Btn50" Click="Btn50_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="$ 50" Style="{StaticResource AmountPinGiftPin}" />
+            <Button Margin="10" x:Name="Btncus" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource AmountPinGiftPin}" Click="Btncus_Click">
+                <TextBlock x:Name="BtncusText" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </Button>
+
+            <Button Margin="10" x:Name="BtnCancel" Background="#B31B1B" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Content="Cancel" Style="{StaticResource AmountPinGiftPin}" Click="BtnCancel_Click" />
+        </UniformGrid>
+
+
+    </Grid>
+</Window>
+

@@ -1,0 +1,227 @@
+﻿<Window x:Class="Pospointe.LoginWindow.FrmAbout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Loaded="Window_Loaded"
+        Background="Transparent"
+        Height="768" Width="1366"
+        Title="About Pospointe">
+
+    <Grid Background="#80000000">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid  Grid.Row="1" Grid.Column="1">
+
+            <Border Background="{StaticResource BackgroundBrush}"         
+                CornerRadius="20" HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+            </Border>
+
+
+            <Grid >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+
+                </Grid.RowDefinitions>
+
+                <Border Margin="0 0 0 0" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" x:Name="HeaderBorder" Background="{StaticResource Appboarderfill}"  CornerRadius="20 20 0 0" />
+
+                <TextBlock Text="About Pospointe" Grid.Column="0" Grid.ColumnSpan="2" Padding="0 0 0 0"
+                       Style="{StaticResource Header1}" HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+
+                <Button Margin="0 0 10 0" VerticalAlignment="Center" Background="Transparent" x:Name="BtnExit" Style="{StaticResource Icobtn}" Grid.Column="1" HorizontalAlignment="Right" Click="Btnclose_Click">
+                    <iconPacks:PackIconFontAwesome Style="{StaticResource Icobtnico}" Kind="CircleXmarkSolid" Height="50" Width="50" VerticalAlignment="Center" Foreground="#1D1E27" />
+                </Button>
+
+
+
+                <Grid Margin="20" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.3*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="IP and Computer Details" 
+                               Style="{StaticResource Header2}"/>
+
+                    <TextBlock Text="Computer Name:" Grid.Row="1" Style="{StaticResource Header3}"/>
+                    <TextBlock x:Name="LblCompname" Grid.Row="1" Grid.Column="1" Style="{StaticResource Header3}"/>
+
+                    <TextBlock Text="MAC Address:" Grid.Row="2" Style="{StaticResource Header3}"/>
+                    <TextBlock x:Name="LblMacaddress" Grid.Row="2" Grid.Column="1" Style="{StaticResource Header3}"/>
+
+                    <TextBlock Text="Local IP Address:" Grid.Row="3" Style="{StaticResource Header3}"/>
+                    <TextBlock x:Name="LblLocalIp" Grid.Row="3" Grid.Column="1" Style="{StaticResource Header3}"/>
+
+                    <TextBlock Text="Public IP Address:" Grid.Row="4" Style="{StaticResource Header3}"/>
+                    <TextBlock x:Name="LblPublicIp" Grid.Row="4" Grid.Column="1" Style="{StaticResource Header3}"/>
+
+
+                </Grid>
+
+                <Grid Margin="20" Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.3*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Performance Stats" 
+                                   Style="{StaticResource Header2}" 
+                                   Margin="0,0,0,15"/>
+
+                    <TextBlock Text="CPU Usage:" Grid.Row="1" Style="{StaticResource Header3}"/>
+                    <TextBlock x:Name="LblCpuUsage" Grid.Row="1" Grid.Column="1" Style="{StaticResource Header3}"/>
+
+                    <TextBlock Text="Memory Usage:" Grid.Row="2" Style="{StaticResource Header3}"/>
+                    <TextBlock x:Name="LblMemoryUsage" Grid.Row="2" Grid.Column="1" Style="{StaticResource Header3}"/>
+
+                    <TextBlock Text="Offline Transactions" Grid.Row="3" 
+                                Style="{StaticResource Header2}" 
+                                Margin="0,0,0,15"/>
+
+                    <TextBlock Text="Local Transactions:" Grid.Row="4" Style="{StaticResource Header3}"/>
+                    <TextBlock x:Name="LblLocalTransactionCount" Grid.Row="4" Grid.Column="4" Style="{StaticResource Header3}"/>
+
+                    <TextBlock Text="Hold Transactions:" Grid.Row="5" Style="{StaticResource Header3}"/>
+                    <TextBlock x:Name="LblLocalHoldCount" Grid.Row="5" Grid.Column="4" Style="{StaticResource Header3}"/>
+
+                </Grid>
+
+                <Grid Margin="20" Grid.Row="2" Grid.Column="0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.3*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <TextBlock Grid.Column="0" Text="License Details"  Style="{StaticResource Header2}"/>
+
+                    <TextBlock Text="License Number:" Grid.Row="1" Style="{StaticResource Header3}"/>
+                    <TextBlock x:Name="LblLicense" Grid.Row="1" Grid.Column="1" Style="{StaticResource Header3}"/>
+
+                    <TextBlock Text="License Type:" Grid.Row="2" Style="{StaticResource Header3}"/>
+                    <TextBlock x:Name="LblLicenseType" Grid.Row="2" Grid.Column="1" Style="{StaticResource Header3}"/>
+
+                    <TextBlock Text="Version:" Grid.Row="3" Style="{StaticResource Header3}"/>
+                    <TextBlock x:Name="LblVersion" Grid.Row="3" Grid.Column="1" Style="{StaticResource Header3}"/>
+
+                    
+
+
+
+                </Grid>
+
+                <Grid  Margin="20" Grid.Row="2" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.3*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Header -->
+                    <TextBlock Grid.Column="0" Text="Helpful Links" Style="{StaticResource Header2}" />
+
+                    <!-- View License Agreement Link -->
+                    <TextBlock Style="{StaticResource Header3}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" FontSize="16">
+        <Hyperlink Click="ViewLicense_Click" Foreground="#B31B1B" >
+            View License Agreement
+        </Hyperlink>
+                    </TextBlock>
+
+                    <!-- Troubleshooting Guide Link -->
+                    <TextBlock Style="{StaticResource Header3}" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" FontSize="16">
+                                <Hyperlink Click="TroubleshootingGuide_Click" Foreground="#B31B1B">
+                                    Troubleshooting Guide
+                                </Hyperlink>
+                    </TextBlock>
+
+                    <!-- FAQ Link -->
+                    <TextBlock Style="{StaticResource Header3}" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" FontSize="16">
+                                <Hyperlink Click="FAQ_Click" Foreground="#B31B1B">
+                                FAQ
+                                </Hyperlink>
+                    </TextBlock>
+                </Grid>
+
+
+
+            </Grid>
+
+
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
+           Text="© 2025 Pospointe.com | A Product of ASNIT Inc." 
+           Style="{StaticResource Header3}" 
+           HorizontalAlignment="Center" 
+           VerticalAlignment="Bottom" 
+           Margin="0,0,0,10"/>
+        </Grid>
+
+
+
+
+
+
+
+
+
+    </Grid>
+</Window>

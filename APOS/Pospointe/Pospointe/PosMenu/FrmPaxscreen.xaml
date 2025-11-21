@@ -1,0 +1,116 @@
+﻿<Window x:Class="Pospointe.PosMenu.FrmPaxscreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pospointe.PosMenu"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Title="FrmPaxscreen"
+        Width="1920" Height="1080"
+        Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <!-- Pulsing Dots Animation -->
+        <Style x:Key="PulseDot" TargetType="Ellipse">
+            <Setter Property="Width" Value="12"/>
+            <Setter Property="Height" Value="12"/>
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="Fill" Value="#666666"/>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" From="1" To="1.6" Duration="0:0:1" AutoReverse="True" BeginTime="0:0:0"/>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" From="1" To="1.6" Duration="0:0:1" AutoReverse="True" BeginTime="0:0:0"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Fade In Animation on Window -->
+        <Storyboard x:Key="FadeInStoryboard">
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:1.5" />
+        </Storyboard>
+    </Window.Resources>
+
+    <Grid x:Name="RootGrid" Background="#80000000" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Glass Panel with Border -->
+        <Border Grid.Row="1" Grid.Column="1"
+                CornerRadius="20"
+                Background="#CCFFFFFF"
+                Padding="30"
+                >
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Payment Processing" 
+                           FontSize="42" 
+                           FontWeight="Bold" 
+                           Foreground="#444444" 
+                           HorizontalAlignment="Center"/>
+
+                <TextBlock Text="Please follow the instructions on the PIN pad."
+                           FontSize="28" 
+                           FontWeight="SemiBold" 
+                           Foreground="#333333"
+                           HorizontalAlignment="Center" 
+                           TextWrapping="Wrap" 
+                           Margin="0,15"/>
+
+                <TextBlock Text="Do not remove your card during the process."
+                           FontSize="24" 
+                           Foreground="#555555"
+                           HorizontalAlignment="Center" 
+                           TextWrapping="Wrap" 
+                           Margin="0,5"/>
+
+                <TextBlock Text="Processing may take a few seconds."
+                           FontSize="24" 
+                           Foreground="#555555"
+                           HorizontalAlignment="Center" 
+                           TextWrapping="Wrap" 
+                           Margin="0,5"/>
+
+                <TextBlock x:Name="LblStatus"
+           FontSize="22"
+           FontWeight="Normal"
+           Foreground="#666666"
+           HorizontalAlignment="Center"
+           Text="Initializing..." 
+           Margin="0,20,0,0" />
+
+
+                <!-- Pulsing Dots -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,25,0,0">
+                    <Ellipse Style="{StaticResource PulseDot}" />
+                    <Ellipse Style="{StaticResource PulseDot}" />
+                    <Ellipse Style="{StaticResource PulseDot}" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

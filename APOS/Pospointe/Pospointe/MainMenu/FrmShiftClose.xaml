@@ -1,0 +1,226 @@
+﻿<Window x:Class="Pospointe.MainMenu.FrmShiftClose"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:Pospointe.MainMenu"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Background="{StaticResource BackgroundBrush}"
+        Loaded="Window_Loaded"
+        Title="FrmShiftClose"
+        Height="768"
+        Width="1366">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Background="{StaticResource BorderFillBrush}" Grid.Column="0" Grid.ColumnSpan="3" CornerRadius="0 0 30 30" />
+
+            <TextBlock x:Name="TxtLoggeduser" Style="{StaticResource Header1}" Text="Started At" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <TextBlock x:Name="TxtStartedat" Style="{StaticResource Header1}" Text="Started At" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" />
+
+            <Button VerticalAlignment="Center " Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Background="Transparent" x:Name="BtnClose" Style="{StaticResource Icobtn}" Click="BtnClose_Click">
+                <iconPacks:PackIconFontAwesome Style="{StaticResource Icobtnico}" Kind="CircleXmarkSolid" Height="50" Width="120" VerticalAlignment="Center" Foreground="#1D1E27" />
+            </Button>
+            
+        </Grid>
+        
+
+        <Grid Grid.Row="1" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="1*"/>
+                    <RowDefinition  Height="1*"/>
+                    <RowDefinition  Height="1*"/>
+                    <RowDefinition  Height="1*"/>
+                    <RowDefinition  Height="1*"/>
+                    <RowDefinition  Height="1*"/>
+                    <RowDefinition  Height="1*"/>
+                    <RowDefinition  Height="1*"/>
+                </Grid.RowDefinitions>
+
+
+                <TextBlock  Style="{StaticResource Header1}" Text="Enter Notes" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 40 0" />
+
+                <TextBlock  Style="{StaticResource Header1}" Text="100 :" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 40 0" />
+                <TextBlock Style="{StaticResource Header1}" Text="50 :" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 40 0" />
+                <TextBlock Style="{StaticResource Header1}" Text="20 :" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 40 0" />
+                <TextBlock Style="{StaticResource Header1}" Text="10 :" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 40 0" />
+                <TextBlock Style="{StaticResource Header1}" Text="5 :" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 40 0" />
+                <TextBlock Style="{StaticResource Header1}" Text="1 :" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 40 0" />
+                <TextBlock Style="{StaticResource Header1}" Text="Total Notes :"  Grid.Row="7" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 40 0"/>
+
+                <TextBlock  x:Name="TxtTotalNotes" Grid.Row="7" Grid.Column="1"  VerticalAlignment="Center"
+               Text="0" 
+               HorizontalAlignment="Left" 
+               Style="{StaticResource Header1}" 
+               Margin="40 0 0 0"/>
+
+                <TextBox Style="{StaticResource NormText}" x:Name="TxtNote100" Grid.Row="1" Grid.Column="1" PreviewTextInput="TxtNote_PreviewTextInput" LostFocus="TextChanged" GotFocus="TxtNote_GotFocus" />
+                <TextBox Style="{StaticResource NormText}" x:Name="TxtNote50" Grid.Row="2" Grid.Column="1" PreviewTextInput="TxtNote_PreviewTextInput" LostFocus="TextChanged" GotFocus="TxtNote_GotFocus" />
+                <TextBox Style="{StaticResource NormText}" x:Name="TxtNote20" Grid.Row="3" Grid.Column="1" PreviewTextInput="TxtNote_PreviewTextInput" LostFocus="TextChanged"  GotFocus="TxtNote_GotFocus"/>
+                <TextBox Style="{StaticResource NormText}" x:Name="TxtNote10" Grid.Row="4" Grid.Column="1" PreviewTextInput="TxtNote_PreviewTextInput" LostFocus="TextChanged" GotFocus="TxtNote_GotFocus"/>
+                <TextBox Style="{StaticResource NormText}" x:Name="TxtNote5" Grid.Row="5" Grid.Column="1" PreviewTextInput="TxtNote_PreviewTextInput" LostFocus="TextChanged" GotFocus="TxtNote_GotFocus"/>
+                <TextBox Style="{StaticResource NormText}" x:Name="TxtNote1" Grid.Row="6" Grid.Column="1" PreviewTextInput="TxtNote_PreviewTextInput" LostFocus="TextChanged" GotFocus="TxtNote_GotFocus"/>
+
+
+            </Grid>
+
+            <Grid Grid.Column="2" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="1*"/>
+                    <RowDefinition  Height="1*"/>
+                    <RowDefinition  Height="1*"/>
+                    <RowDefinition  Height="1*"/>
+                    <RowDefinition  Height="1*"/>
+                    <RowDefinition  Height="1*"/>
+                    <RowDefinition  Height="1*"/>
+                    <RowDefinition  Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Style="{StaticResource Header1}" Text="Enter Coins" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 40 0"/>
+                <TextBlock Style="{StaticResource Header1}" Text="50 :" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 40 0" />
+                <TextBlock Style="{StaticResource Header1}" Text="25 :" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 40 0" />
+                <TextBlock Style="{StaticResource Header1}" Text="10 :" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 40 0" />
+                <TextBlock Style="{StaticResource Header1}" Text="5 :" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 40 0" />
+                <TextBlock Style="{StaticResource Header1}" Text="1 :" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 40 0" />
+                <TextBlock Style="{StaticResource Header1}" Text="Total Coins :" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 40 0" />
+                
+                
+                <TextBox Style="{StaticResource NormText}" x:Name="TxtCent50" Grid.Row="1" Grid.Column="1" PreviewTextInput="TxtNote_PreviewTextInput" LostFocus="TextChanged" GotFocus="TxtNote_GotFocus" />
+                <TextBox Style="{StaticResource NormText}" x:Name="TxtCent25" Grid.Row="2" Grid.Column="1" PreviewTextInput="TxtNote_PreviewTextInput" LostFocus="TextChanged" GotFocus="TxtNote_GotFocus" />
+                <TextBox Style="{StaticResource NormText}" x:Name="TxtCent10" Grid.Row="3" Grid.Column="1" PreviewTextInput="TxtNote_PreviewTextInput" LostFocus="TextChanged" GotFocus="TxtNote_GotFocus" />
+                <TextBox Style="{StaticResource NormText}" x:Name="TxtCent5" Grid.Row="4" Grid.Column="1" PreviewTextInput="TxtNote_PreviewTextInput" LostFocus="TextChanged" GotFocus="TxtNote_GotFocus"/>
+                <TextBox Style="{StaticResource NormText}" x:Name="TxtCent1" Grid.Row="5" Grid.Column="1" PreviewTextInput="TxtNote_PreviewTextInput" LostFocus="TextChanged" GotFocus="TxtNote_GotFocus" />
+                <TextBlock x:Name="TxtTotalCoins" Grid.Row="7" Grid.Column="1" 
+               Text="0" 
+               HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"
+               Style="{StaticResource Header1}" 
+               Margin="5,10,0,0"/>
+
+            </Grid>
+
+            <Grid Grid.Column="3" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+
+                <Border Background="{StaticResource Appboarderfill}" Grid.Row="0" Grid.RowSpan="2" CornerRadius="20" />
+
+
+                <Grid Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Content="1" Grid.Column="0" Grid.Row="0" Click="BtnNuum_Click" Style="{StaticResource PinpadNumberpad}"/>
+                    <Button Content="2" Grid.Column="1" Grid.Row="0" Click="BtnNuum_Click" Style="{StaticResource PinpadNumberpad}"/>
+                    <Button Content="3" Grid.Column="2" Grid.Row="0" Click="BtnNuum_Click" Style="{StaticResource PinpadNumberpad}"/>
+                    <Button Content="4" Grid.Column="0" Grid.Row="1" Click="BtnNuum_Click" Style="{StaticResource PinpadNumberpad}"/>
+                    <Button Content="5" Grid.Column="1" Grid.Row="1" Click="BtnNuum_Click" Style="{StaticResource PinpadNumberpad}"/>
+                    <Button Content="6" Grid.Column="2" Grid.Row="1" Click="BtnNuum_Click" Style="{StaticResource PinpadNumberpad}"/>
+                    <Button Content="7" Grid.Column="0" Grid.Row="2" Click="BtnNuum_Click" Style="{StaticResource PinpadNumberpad}"/>
+                    <Button Content="8" Grid.Column="1" Grid.Row="2" Click="BtnNuum_Click" Style="{StaticResource PinpadNumberpad}"/>
+                    <Button Content="9" Grid.Column="2" Grid.Row="2" Click="BtnNuum_Click" Style="{StaticResource PinpadNumberpad}"/>
+                    <Button Content="0" Grid.Column="0" Grid.Row="3" Click="BtnNuum_Click" Style="{StaticResource PinpadNumberpad}"/>
+
+
+                    <Button x:Name="Btndelete" Grid.Column="1" Grid.Row="3" Style="{StaticResource PinpadNumberpad}" Click="Btndelete_Click" >
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Style="{StaticResource menuButtonIcon}" Kind="ArrowLeft" Height="60" Width="30"  VerticalAlignment="Center" />
+
+                        </StackPanel>
+                    </Button>
+                    
+                    <Button Content="END" Grid.Column="2" Grid.Row="3" Click="BtnShiftEnd_Click" Style="{StaticResource PinpadNumberpad}"/>
+
+                </Grid>
+                
+                <Grid Grid.Row="0" Grid.RowSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    
+                    <TextBlock Style="{StaticResource Header2}" Text="Started Cash" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40 0 0 0" />
+                    <TextBlock Style="{StaticResource Header2}" Text="Sales" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40 0 0 0" />
+                    <TextBlock Style="{StaticResource Header2}" Text="Expected" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40 0 0 0" />
+                    <TextBlock Style="{StaticResource Header2}" Text="Actual Total" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40 0 0 0" />
+                    <TextBlock Style="{StaticResource Header2}" Text="Difference" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40 0 0 0" />
+
+
+                    <TextBlock x:Name="TxtStartedcash" Style="{StaticResource Header2}" Text="N/A" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40 0 0 0" />
+                    <TextBlock x:Name="TxtSales" Style="{StaticResource Header2}" Text="N/A" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40 0 0 0" />
+                    <TextBlock x:Name="TxtExpected" Style="{StaticResource Header2}" Text="N/A" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40 0 0 0" />
+                    <TextBlock x:Name="TxtActualTotal" Style="{StaticResource Header2}" Text="N/A" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40 0 0 0" />
+                    <TextBlock x:Name="TxtDifferent" Style="{StaticResource Header2}" Text="N/A" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40 0 0 0" />
+
+                </Grid>
+
+            </Grid>
+
+            
+
+
+        </Grid>
+       
+    </Grid>
+</Window>

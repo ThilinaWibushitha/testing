@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace my_pospointe.Models;
+
+public partial class TblLoyalityPlanMembersTracking
+{
+    public int Id { get; set; }
+
+    public Guid? UpdateScopeId { get; set; }
+
+    public byte[]? Timestamp { get; set; }
+
+    public long? TimestampBigint { get; set; }
+
+    public bool SyncRowIsTombstone { get; set; }
+
+    public DateTime? LastChangeDatetime { get; set; }
+}
