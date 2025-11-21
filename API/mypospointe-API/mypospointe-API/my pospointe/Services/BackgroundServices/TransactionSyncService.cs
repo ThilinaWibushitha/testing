@@ -32,7 +32,7 @@ namespace my_pospointe_api.Services.BackgroundServices
             _configuration = configuration;
         }
 
-        protected override System.Threading.Tasks.Task ExecuteAsync(CancellationToken stoppingToken)
+        protected override async System.Threading.Tasks.Task ExecuteAsync(CancellationToken stoppingToken)
         {
             var defaultConnectionFromEnv = Environment.GetEnvironmentVariable("DefaultConnection");
             var defaultConnectionFromConfig = _configuration.GetConnectionString("DefaultConnection");
@@ -45,12 +45,32 @@ namespace my_pospointe_api.Services.BackgroundServices
             if (!hasValidConnection)
             {
                 _logger.LogInformation("Transaction Sync Service disabled - database not configured.");
-                return System.Threading.Tasks.Task.CompletedTask;
+                return;
             }
             
             _logger.LogInformation("Transaction Sync Service enabled - SQL Server database configured.");
+            
+            try
+            {
+                using (var scope = _serviceProvider.CreateScope())
+                {
+                    var dbContext = scope.ServiceProvider.GetRequiredService<PosavanceInventoryContext>();
+                    var pendingCount = dbContext.TblSyncTransactions
+                        .Where(t => t.Status == SyncStatus.Pending || t.Status == SyncStatus.Failed)
+                        .Count();
+                    
+                    if (pendingCount > 0)
+                    {
+                        _logger.LogInformation($"Application startup: Found {pendingCount} pending transactions. Starting sync immediately.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error checking for pending transactions on startup.");
+            }
+            
             _timer = new Timer(DoWork, null, TimeSpan.Zero, TimeSpan.FromMinutes(RegularSyncIntervalMinutes));
-            return System.Threading.Tasks.Task.CompletedTask;
         }
 
         private async void DoWork(object state)

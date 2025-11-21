@@ -64,6 +64,7 @@ builder.Services.AddScoped<ICrudTbl_Items, CrudTbl_Items>();
 builder.Services.AddSingleton<SharedStateService>();
 
 builder.Services.AddSingleton<ITransactionUploadService, TransactionUploadService>();
+builder.Services.AddScoped<IShiftSyncService, ShiftSyncService>();
 
 // Register the background service
 builder.Services.AddHostedService<TransactionSyncService>();
