@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using my_pospointe_api.Models;
+using my_pospointe.Models;
 
 namespace my_pospointe_api.Services
 {
