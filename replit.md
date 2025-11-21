@@ -62,10 +62,28 @@ Connection strings are configured via environment variables in Replit.
 - **Payment Processing**: Stripe integration for payments
 - **Background Services**: Automatic transaction syncing every 20 minutes
 
+## Transaction Synchronization System
+The API includes a robust background transaction synchronization service that:
+- Sends transactions to a primary server every 20 minutes
+- Falls back to a backup Azure server if primary fails
+- Persists failed transactions locally for retry
+- Attempts final sync when shift closes
+- Automatically retries pending transactions when:
+  - Next shift opens
+  - Application restarts
+- All processing runs invisibly in the background
+
+### Transaction Sync Endpoints
+Configure these endpoints via environment variables or appsettings.json:
+- `TransactionSync:PrimaryEndpoint`: Primary server URL for transaction uploads
+- `TransactionSync:BackupEndpoint`: Backup Azure server URL for failover
+
 ## Environment Variables
 The following environment variables are used:
 - `DefaultConnection`: SQL Server connection string for main database
 - `FranchiseConnection`: SQL Server connection string for franchise database
+- `TransactionSync:PrimaryEndpoint`: Primary transaction sync server
+- `TransactionSync:BackupEndpoint`: Backup transaction sync server
 - QuickBooks API credentials
 - Stripe API keys
 - Radar authentication header
